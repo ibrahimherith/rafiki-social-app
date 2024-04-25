@@ -13,9 +13,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
 
 //pages
+import PrivateRoute from "./components/PrivateRoute.jsx";
 import Home from "./pages/Home.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import RegisterPage from "./pages/RegisterPage.jsx";
+import ProfilePage from "./pages/ProfilePage.jsx";
 
 //routes
 const router = createBrowserRouter(
@@ -24,6 +26,10 @@ const router = createBrowserRouter(
       <Route index={true} path="/" element={<Home />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
+      {/* Private Routes */}
+      <Route path="" element={<PrivateRoute />}>
+        <Route path="/profile" element={<ProfilePage />} />
+      </Route>
     </Route>
   )
 );
